@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+</head>
+<body>
+
+    {% for cat in category %}
+        <h1><a href="/cat/{{ cat }}" >{{ cat }}</a></h1>
+        {% for product in products %}
+            {% if cat == product.category %}
+                <div><a href="/prod/{{ product.name }}">{{ product.name }}</a></div>
+            {% endif %}
+
+        {% endfor %}
+
+    {% endfor %}
+</body>
+</html>
